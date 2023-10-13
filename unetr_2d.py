@@ -123,8 +123,6 @@ def build_unetr_2d(cf):
     s = conv_block(x=z0, num_filters=64)  # yellow
     s = conv_block(x=s, num_filters=64)   # yellow
 
-    print(x.shape, s.shape)
-
     x = L.Concatenate()([x, s])
 
     x = conv_block(x=x, num_filters=64)  # yellow
@@ -133,7 +131,7 @@ def build_unetr_2d(cf):
     # Output layer
     outputs = L.Conv2D(1, kernel_size=1, padding='same', activation='sigmoid')(x)
 
-    return Model(inputs, outputs, name='UNETR')
+    return Model(inputs, outputs, name='UNETR_2D')
 
 
 
